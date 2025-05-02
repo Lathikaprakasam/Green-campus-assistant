@@ -1,0 +1,36 @@
+import random
+
+def green_response(user_input):
+    user_input = user_input.lower()
+    
+    responses = {
+        "recycle": "You can recycle paper, plastic, and metal in the blue bins across campus.",
+        "plant trees": "Tree plantation drives happen every month. Join the Green Club to participate!",
+        "save energy": "Turn off lights and fans when not in use. Use daylight as much as possible.",
+        "water conservation": "Report leaky taps. Use water-saving nozzles installed in hostels.",
+        "events": "The next Eco-week starts on June 5th with tree planting and waste art competitions.",
+        "solar energy": "Our campus uses solar panels on library rooftops to generate clean energy.",
+        "carpool": "Use the Green Campus Carpool app or register at the Student Eco Office to find buddies."
+    }
+    
+    for keyword in responses:
+        if keyword in user_input:
+            return responses[keyword]
+    
+    default_responses = [
+        "Sorry, I’m not sure. Try asking about recycling, tree planting, or saving energy.",
+        "I’m still learning. Can you rephrase your question?",
+        "Great initiative! Try asking about eco events or green practices on campus."
+    ]
+    
+    return random.choice(default_responses)
+
+# Chat loop
+print("🌱 Welcome to Green Campus Assistant! Type 'exit' to quit.")
+while True:
+    user = input("You: ")
+    if user.lower() == "exit":
+        print("Bot: Stay green! 🌿")
+        break
+    response = green_response(user)
+    print("Bot:", response)
